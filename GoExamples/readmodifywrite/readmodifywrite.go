@@ -8,6 +8,8 @@ import (
 var counter int64
 var wait_group sync.WaitGroup
 
+// before correcting, run with:
+// go run --race readmodifywrite/readmodifywrite.go
 // var l sync.Mutex
 
 func incrementer() {
