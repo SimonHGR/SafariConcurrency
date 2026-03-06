@@ -1,8 +1,9 @@
 console.log("fib.js loading")
 
 function fib(x) {
+    if (x == 0) return 0
     if (x < 3) return 1
-    else return fib(x - 1) + fib(x - 2)
+    return fib(x - 1) + fib(x - 2)
 }
 
 onmessage = e => {
