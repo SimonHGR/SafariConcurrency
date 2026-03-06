@@ -7,7 +7,7 @@ import (
 func producer(data chan int, control chan bool) {
 	fmt.Println("Producer starting")
 	for count := 0; count < 2000; count++ {
-		if count == 500 {
+		if count == 1500 {
 			data <- -1
 		} else {
 			data <- count
