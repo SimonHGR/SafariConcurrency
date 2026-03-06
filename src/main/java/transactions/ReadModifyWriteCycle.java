@@ -4,8 +4,8 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.LongAccumulator;
 
 public class ReadModifyWriteCycle {
-//  private static long count = 0L;
-  private volatile static long count = 0L;
+  private static long count = 0L;
+//  private volatile static long count = 0L;
 //  private static AtomicLong count = new AtomicLong();
 //  private static LongAccumulator count = new LongAccumulator((a, b) -> a + b, 0L);
 
