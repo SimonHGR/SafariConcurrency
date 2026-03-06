@@ -1,0 +1,39 @@
+<html>
+
+<head>
+</head>
+
+<body>
+    <h1>Callback</h1>
+    <input type="text" id="input" size="10" />
+    <input type="text" id="output" readonly="true" />
+    <br/>
+    <input type="button" id="clicker" value="Click Me!" />
+    <input type="text" id="counter" readonly="true" />
+    <br/>
+    <a href="index.html">Back</a>
+    <script>
+        const clicker = document.getElementById("clicker")
+        const counter = document.getElementById("counter")
+        let countVal = 0;
+        clicker.onclick = e => {
+            countVal++;
+            counter.value = countVal;
+        }
+
+        let output = document.getElementById("output")
+        function callThis(n) {
+            setTimeout(() => {
+                output.value = "twice " + n + " is " + (2 * n)
+            }, 3000)
+        }
+        let input = document.getElementById("input")
+        input.onchange = e => {
+            let text = input.value
+            let number = Number.parseInt(text)
+            callThis(number)
+        }
+    </script>
+</body>
+
+</html>

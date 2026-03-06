@@ -1,0 +1,44 @@
+<html>
+
+<head>
+</head>
+
+<body>
+    <h1>Web Worker Calculation</h1>
+    <input type="text" id="input" size="10" />
+    <input type="text" id="output" readonly="true" />
+    <br />
+    <input type="button" id="clicker" value="Click Me!" />
+    <input type="text" id="counter" readonly="true" />
+    <br/>
+    <a href="index.html">Back</a>
+    <script>
+        const clicker = document.getElementById("clicker")
+        const counter = document.getElementById("counter")
+        let countVal = 0;
+        clicker.onclick = e => {
+            countVal++;
+            counter.value = countVal;
+        }
+
+        let output = document.getElementById("output")
+        if (window.Worker) {
+            let fibWorker = new Worker("fib.js")
+            fibWorker.onmessage = e => {
+                // console.log("worker got " + e)
+                output.value = "Fib: " + e.data
+            }
+            let input = document.getElementById("input")
+            input.onchange = e => {
+                let text = input.value
+                let number = Number.parseInt(text)
+                // console.log("fw.postMessage is " + fibWorker.postMessage)
+                fibWorker.postMessage(number)
+            }
+        } else {
+            output.value = "No Worker API available"
+        }
+    </script>
+</body>
+
+</html>
