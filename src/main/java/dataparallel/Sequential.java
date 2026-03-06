@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 public class Sequential {
   public static long fib(long n) {
+    if (n == 0) return 0;
     if (n < 3) return 1;
     else return fib(n - 1) + fib(n - 2);
   }
